@@ -20,7 +20,8 @@ export default function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
   }
 
   return (
-    <div className="prose prose-sm dark:prose-invert max-w-none p-6 overflow-y-auto h-full
+    <div
+      className="prose prose-sm dark:prose-invert max-w-none p-6 overflow-y-auto h-full
       prose-headings:scroll-mt-4
       prose-h1:text-2xl prose-h1:font-bold prose-h1:border-b prose-h1:pb-2 prose-h1:border-gray-200 dark:prose-h1:border-gray-700
       prose-h2:text-xl prose-h2:font-semibold prose-h2:mt-8
@@ -41,22 +42,34 @@ export default function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
         remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children, ...props }) => (
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4" {...props}>
+            <h1
+              className="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+              {...props}
+            >
               {children}
             </h1>
           ),
           h2: ({ children, ...props }) => (
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3" {...props}>
+            <h2
+              className="text-xl font-semibold text-gray-900 dark:text-white mt-8 mb-3"
+              {...props}
+            >
               {children}
             </h2>
           ),
           h3: ({ children, ...props }) => (
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-2" {...props}>
+            <h3
+              className="text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-2"
+              {...props}
+            >
               {children}
             </h3>
           ),
           p: ({ children, ...props }) => (
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4" {...props}>
+            <p
+              className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4"
+              {...props}
+            >
               {children}
             </p>
           ),
@@ -98,12 +111,18 @@ export default function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
             </pre>
           ),
           ul: ({ children, ...props }) => (
-            <ul className="list-disc list-inside space-y-1.5 mb-4 text-gray-700 dark:text-gray-300" {...props}>
+            <ul
+              className="list-disc list-inside space-y-1.5 mb-4 text-gray-700 dark:text-gray-300"
+              {...props}
+            >
               {children}
             </ul>
           ),
           ol: ({ children, ...props }) => (
-            <ol className="list-decimal list-inside space-y-1.5 mb-4 text-gray-700 dark:text-gray-300" {...props}>
+            <ol
+              className="list-decimal list-inside space-y-1.5 mb-4 text-gray-700 dark:text-gray-300"
+              {...props}
+            >
               {children}
             </ol>
           ),
@@ -122,7 +141,10 @@ export default function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
           ),
           table: ({ children, ...props }) => (
             <div className="overflow-x-auto my-4">
-              <table className="w-full border-collapse rounded-lg overflow-hidden" {...props}>
+              <table
+                className="w-full border-collapse rounded-lg overflow-hidden"
+                {...props}
+              >
                 {children}
               </table>
             </div>
@@ -152,7 +174,10 @@ export default function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
             />
           ),
           hr: ({ ...props }) => (
-            <hr className="my-8 border-gray-200 dark:border-gray-700" {...props} />
+            <hr
+              className="my-8 border-gray-200 dark:border-gray-700"
+              {...props}
+            />
           ),
           input: ({ ...props }) => (
             <input

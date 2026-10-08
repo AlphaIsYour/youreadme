@@ -1,7 +1,11 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { badges, generateBadgeMarkdown, getBadgeCategories } from '@/data/badges';
+import {
+  badges,
+  generateBadgeMarkdown,
+  getBadgeCategories,
+} from '@/data/badges';
 import { Search, Copy, Check, X } from 'lucide-react';
 
 interface BadgePickerProps {
@@ -22,7 +26,8 @@ export default function BadgePicker({ onInsert, onClose }: BadgePickerProps) {
         b.label.toLowerCase().includes(search.toLowerCase()) ||
         b.message.toLowerCase().includes(search.toLowerCase()) ||
         b.category.toLowerCase().includes(search.toLowerCase());
-      const matchesCategory = selectedCategory === 'All' || b.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === 'All' || b.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
   }, [search, selectedCategory]);
@@ -40,8 +45,12 @@ export default function BadgePicker({ onInsert, onClose }: BadgePickerProps) {
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-700">
           <div>
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Badge Helper</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Click a badge to insert it into your README</p>
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+              Badge Helper
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Click a badge to insert it into your README
+            </p>
           </div>
           <button
             onClick={onClose}

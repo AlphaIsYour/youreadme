@@ -64,7 +64,12 @@ const sectionPlaceholders: Record<string, string> = {
   custom: 'Enter your custom content here...',
 };
 
-export default function SectionEditor({ section, onUpdate, onDelete, dragHandleProps }: SectionEditorProps) {
+export default function SectionEditor({
+  section,
+  onUpdate,
+  onDelete,
+  dragHandleProps,
+}: SectionEditorProps) {
   const [collapsed, setCollapsed] = useState(false);
   const Icon = sectionIcons[section.type] || FileText;
 
@@ -76,7 +81,10 @@ export default function SectionEditor({ section, onUpdate, onDelete, dragHandleP
     <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
       {/* Header */}
       <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
-        <div {...dragHandleProps} className="cursor-grab active:cursor-grabbing p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors">
+        <div
+          {...dragHandleProps}
+          className="cursor-grab active:cursor-grabbing p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors"
+        >
           <GripVertical className="w-4 h-4 text-gray-400" />
         </div>
 
@@ -131,7 +139,8 @@ export default function SectionEditor({ section, onUpdate, onDelete, dragHandleP
         <div className="p-4">
           {section.type === 'header' ? (
             <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-              Header is auto-generated from your project name and description above.
+              Header is auto-generated from your project name and description
+              above.
             </p>
           ) : section.type === 'license' ? (
             <p className="text-xs text-gray-500 dark:text-gray-400 italic">
@@ -141,14 +150,17 @@ export default function SectionEditor({ section, onUpdate, onDelete, dragHandleP
             <textarea
               value={section.content}
               onChange={(e) => handleChange('content', e.target.value)}
-              placeholder={sectionPlaceholders[section.type] || 'Enter content...'}
+              placeholder={
+                sectionPlaceholders[section.type] || 'Enter content...'
+              }
               rows={6}
               className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 text-sm text-gray-700 dark:text-gray-300 font-mono resize-y focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500"
             />
           )}
           {section.type !== 'header' && section.type !== 'license' && (
             <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
-              Supports Markdown syntax. Use ``` for code blocks, **bold**, *italic*, etc.
+              Supports Markdown syntax. Use ``` for code blocks, **bold**,
+              *italic*, etc.
             </p>
           )}
         </div>

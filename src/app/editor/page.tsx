@@ -19,7 +19,11 @@ import {
 import Link from 'next/link';
 import { Section, ProjectData, ChecklistItem, Template } from '@/types';
 import { generateId } from '@/lib/utils';
-import { generateMarkdown, validateHeadingStructure, getDefaultChecklist } from '@/lib/markdown';
+import {
+  generateMarkdown,
+  validateHeadingStructure,
+  getDefaultChecklist,
+} from '@/lib/markdown';
 import { templates } from '@/data/templates';
 import SortableSection from '@/components/editor/SortableSection';
 import MarkdownPreview from '@/components/preview/MarkdownPreview';
@@ -45,7 +49,8 @@ import {
 export default function EditorPage() {
   const [project, setProject] = useState<ProjectData>({
     name: 'My Project',
-    description: 'A brief description of what this project does and why it matters.',
+    description:
+      'A brief description of what this project does and why it matters.',
     version: '1.0.0',
     author: '',
     license: 'MIT',
@@ -55,7 +60,9 @@ export default function EditorPage() {
     sections: templates[0].sections,
   });
 
-  const [checklist, setChecklist] = useState<ChecklistItem[]>(getDefaultChecklist());
+  const [checklist, setChecklist] = useState<ChecklistItem[]>(
+    getDefaultChecklist()
+  );
   const [showBadgePicker, setShowBadgePicker] = useState(false);
   const [showTemplateSelector, setShowTemplateSelector] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -83,7 +90,10 @@ export default function EditorPage() {
   );
 
   const markdown = useMemo(() => generateMarkdown(project), [project]);
-  const validation = useMemo(() => validateHeadingStructure(markdown), [markdown]);
+  const validation = useMemo(
+    () => validateHeadingStructure(markdown),
+    [markdown]
+  );
 
   const handleDragEnd = useCallback((event: DragEndEvent) => {
     const { active, over } = event;
@@ -91,10 +101,12 @@ export default function EditorPage() {
       setProject((prev) => {
         const oldIndex = prev.sections.findIndex((s) => s.id === active.id);
         const newIndex = prev.sections.findIndex((s) => s.id === over.id);
-        const reordered = arrayMove(prev.sections, oldIndex, newIndex).map((s, i) => ({
-          ...s,
-          order: i,
-        }));
+        const reordered = arrayMove(prev.sections, oldIndex, newIndex).map(
+          (s, i) => ({
+            ...s,
+            order: i,
+          })
+        );
         return { ...prev, sections: reordered };
       });
     }
@@ -114,33 +126,36 @@ export default function EditorPage() {
     }));
   }, []);
 
-  const addSection = useCallback((type: Section['type']) => {
-    const titles: Record<string, string> = {
-      description: 'Description',
-      features: 'Features',
-      screenshots: 'Screenshots',
-      installation: 'Installation',
-      usage: 'Usage',
-      'tech-stack': 'Tech Stack',
-      roadmap: 'Roadmap',
-      contributing: 'Contributing',
-      faq: 'FAQ',
-      acknowledgements: 'Acknowledgements',
-      custom: 'Custom Section',
-    };
-    const newSection: Section = {
-      id: generateId(),
-      type,
-      title: titles[type] || 'New Section',
-      content: '',
-      enabled: true,
-      order: project.sections.length,
-    };
-    setProject((prev) => ({
-      ...prev,
-      sections: [...prev.sections, newSection],
-    }));
-  }, [project.sections.length]);
+  const addSection = useCallback(
+    (type: Section['type']) => {
+      const titles: Record<string, string> = {
+        description: 'Description',
+        features: 'Features',
+        screenshots: 'Screenshots',
+        installation: 'Installation',
+        usage: 'Usage',
+        'tech-stack': 'Tech Stack',
+        roadmap: 'Roadmap',
+        contributing: 'Contributing',
+        faq: 'FAQ',
+        acknowledgements: 'Acknowledgements',
+        custom: 'Custom Section',
+      };
+      const newSection: Section = {
+        id: generateId(),
+        type,
+        title: titles[type] || 'New Section',
+        content: '',
+        enabled: true,
+        order: project.sections.length,
+      };
+      setProject((prev) => ({
+        ...prev,
+        sections: [...prev.sections, newSection],
+      }));
+    },
+    [project.sections.length]
+  );
 
   const applyTemplate = useCallback((template: Template) => {
     setProject((prev) => ({
@@ -215,7 +230,8 @@ export default function EditorPage() {
   const handleReset = useCallback(() => {
     setProject({
       name: 'My Project',
-      description: 'A brief description of what this project does and why it matters.',
+      description:
+        'A brief description of what this project does and why it matters.',
       version: '1.0.0',
       author: '',
       license: 'MIT',
@@ -227,7 +243,10 @@ export default function EditorPage() {
     setChecklist(getDefaultChecklist());
   }, []);
 
-  const sectionIds = useMemo(() => project.sections.map((s) => s.id), [project.sections]);
+  const sectionIds = useMemo(
+    () => project.sections.map((s) => s.id),
+    [project.sections]
+  );
 
   if (!mounted) {
     return (
@@ -285,7 +304,9 @@ export default function EditorPage() {
               {copied ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-500" />
-                  <span className="hidden sm:inline text-emerald-500">Copied!</span>
+                  <span className="hidden sm:inline text-emerald-500">
+                    Copied!
+                  </span>
                 </>
               ) : (
                 <>
@@ -350,7 +371,9 @@ export default function EditorPage() {
                     <input
                       type="text"
                       value={project.name}
-                      onChange={(e) => setProject((p) => ({ ...p, name: e.target.value }))}
+                      onChange={(e) =>
+                        setProject((p) => ({ ...p, name: e.target.value }))
+                      }
                       className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white"
                       placeholder="My Project"
                     />
@@ -362,7 +385,9 @@ export default function EditorPage() {
                     <input
                       type="text"
                       value={project.version}
-                      onChange={(e) => setProject((p) => ({ ...p, version: e.target.value }))}
+                      onChange={(e) =>
+                        setProject((p) => ({ ...p, version: e.target.value }))
+                      }
                       className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white"
                       placeholder="1.0.0"
                     />
@@ -374,7 +399,9 @@ export default function EditorPage() {
                   </label>
                   <textarea
                     value={project.description}
-                    onChange={(e) => setProject((p) => ({ ...p, description: e.target.value }))}
+                    onChange={(e) =>
+                      setProject((p) => ({ ...p, description: e.target.value }))
+                    }
                     rows={2}
                     className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white resize-none"
                     placeholder="A brief description of what this project does..."
@@ -388,7 +415,9 @@ export default function EditorPage() {
                     <input
                       type="text"
                       value={project.author}
-                      onChange={(e) => setProject((p) => ({ ...p, author: e.target.value }))}
+                      onChange={(e) =>
+                        setProject((p) => ({ ...p, author: e.target.value }))
+                      }
                       className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white"
                       placeholder="Your name"
                     />
@@ -399,7 +428,9 @@ export default function EditorPage() {
                     </label>
                     <select
                       value={project.license}
-                      onChange={(e) => setProject((p) => ({ ...p, license: e.target.value }))}
+                      onChange={(e) =>
+                        setProject((p) => ({ ...p, license: e.target.value }))
+                      }
                       className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white"
                     >
                       <option value="MIT">MIT</option>
@@ -419,7 +450,10 @@ export default function EditorPage() {
                       type="text"
                       value={project.repository}
                       onChange={(e) =>
-                        setProject((p) => ({ ...p, repository: e.target.value }))
+                        setProject((p) => ({
+                          ...p,
+                          repository: e.target.value,
+                        }))
                       }
                       className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white"
                       placeholder="https://github.com/..."
@@ -467,7 +501,10 @@ export default function EditorPage() {
                 collisionDetection={closestCenter}
                 onDragEnd={handleDragEnd}
               >
-                <SortableContext items={sectionIds} strategy={verticalListSortingStrategy}>
+                <SortableContext
+                  items={sectionIds}
+                  strategy={verticalListSortingStrategy}
+                >
                   <div className="space-y-3">
                     {project.sections
                       .sort((a, b) => a.order - b.order)
@@ -486,7 +523,10 @@ export default function EditorPage() {
               {project.sections.length === 0 && (
                 <div className="text-center py-12 text-gray-400 dark:text-gray-500">
                   <FileText className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                  <p className="text-sm">No sections yet. Add a section or apply a template to get started.</p>
+                  <p className="text-sm">
+                    No sections yet. Add a section or apply a template to get
+                    started.
+                  </p>
                 </div>
               )}
             </div>

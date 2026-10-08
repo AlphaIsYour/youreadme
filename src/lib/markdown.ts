@@ -132,7 +132,11 @@ function renderAcknowledgements(section: Section): string {
   return `## Acknowledgements\n\n${section.content}`;
 }
 
-export function validateHeadingStructure(markdown: string): { valid: boolean; warnings: string[]; errors: string[] } {
+export function validateHeadingStructure(markdown: string): {
+  valid: boolean;
+  warnings: string[];
+  errors: string[];
+} {
   const warnings: string[] = [];
   const errors: string[] = [];
   const lines = markdown.split('\n');
@@ -160,13 +164,17 @@ export function validateHeadingStructure(markdown: string): { valid: boolean; wa
 
       if (level === 1) {
         if (hasH1) {
-          warnings.push(`Line ${i + 1}: Multiple H1 headings found. Consider using only one H1.`);
+          warnings.push(
+            `Line ${i + 1}: Multiple H1 headings found. Consider using only one H1.`
+          );
         }
         hasH1 = true;
       }
 
       if (level > lastLevel + 1 && lastLevel > 0) {
-        warnings.push(`Line ${i + 1}: Heading level skip detected (H${lastLevel} → H${level}). Consider using H${lastLevel + 1}.`);
+        warnings.push(
+          `Line ${i + 1}: Heading level skip detected (H${lastLevel} → H${level}). Consider using H${lastLevel + 1}.`
+        );
       }
 
       lastLevel = level;
@@ -174,11 +182,15 @@ export function validateHeadingStructure(markdown: string): { valid: boolean; wa
   }
 
   if (!hasH1) {
-    errors.push('No H1 heading found. A README should start with an H1 heading.');
+    errors.push(
+      'No H1 heading found. A README should start with an H1 heading.'
+    );
   }
 
   if (headings.length === 0) {
-    warnings.push('No headings found. Consider adding section headings for better structure.');
+    warnings.push(
+      'No headings found. Consider adding section headings for better structure.'
+    );
   }
 
   return {
@@ -190,21 +202,117 @@ export function validateHeadingStructure(markdown: string): { valid: boolean; wa
 
 export function getDefaultChecklist() {
   return [
-    { id: 'name', label: 'Project name', description: 'Clear, memorable project name in the title', checked: false, category: 'essential' as const },
-    { id: 'desc', label: 'Description', description: 'One-paragraph description of what the project does', checked: false, category: 'essential' as const },
-    { id: 'badges', label: 'Status badges', description: 'Build status, version, license badges', checked: false, category: 'recommended' as const },
-    { id: 'install', label: 'Installation steps', description: 'Clear instructions to install and set up', checked: false, category: 'essential' as const },
-    { id: 'usage', label: 'Usage examples', description: 'Code examples or screenshots showing how to use', checked: false, category: 'essential' as const },
-    { id: 'license', label: 'License', description: 'Open source license specified', checked: false, category: 'essential' as const },
-    { id: 'contributing', label: 'Contributing guide', description: 'How others can contribute to the project', checked: false, category: 'recommended' as const },
-    { id: 'features', label: 'Feature list', description: 'Key features clearly listed', checked: false, category: 'recommended' as const },
-    { id: 'tech', label: 'Tech stack', description: 'Technologies and frameworks used', checked: false, category: 'recommended' as const },
-    { id: 'screenshots', label: 'Screenshots', description: 'Visual preview of the project', checked: false, category: 'recommended' as const },
-    { id: 'roadmap', label: 'Roadmap', description: 'Future plans and upcoming features', checked: false, category: 'optional' as const },
-    { id: 'faq', label: 'FAQ section', description: 'Answers to common questions', checked: false, category: 'optional' as const },
-    { id: 'changelog', label: 'Changelog', description: 'Version history or link to changelog', checked: false, category: 'optional' as const },
-    { id: 'coc', label: 'Code of conduct', description: 'Community behavior guidelines', checked: false, category: 'optional' as const },
-    { id: 'prerequisites', label: 'Prerequisites listed', description: 'System requirements and dependencies', checked: false, category: 'recommended' as const },
-    { id: 'toc', label: 'Table of contents', description: 'Navigation for longer READMEs', checked: false, category: 'optional' as const },
+    {
+      id: 'name',
+      label: 'Project name',
+      description: 'Clear, memorable project name in the title',
+      checked: false,
+      category: 'essential' as const,
+    },
+    {
+      id: 'desc',
+      label: 'Description',
+      description: 'One-paragraph description of what the project does',
+      checked: false,
+      category: 'essential' as const,
+    },
+    {
+      id: 'badges',
+      label: 'Status badges',
+      description: 'Build status, version, license badges',
+      checked: false,
+      category: 'recommended' as const,
+    },
+    {
+      id: 'install',
+      label: 'Installation steps',
+      description: 'Clear instructions to install and set up',
+      checked: false,
+      category: 'essential' as const,
+    },
+    {
+      id: 'usage',
+      label: 'Usage examples',
+      description: 'Code examples or screenshots showing how to use',
+      checked: false,
+      category: 'essential' as const,
+    },
+    {
+      id: 'license',
+      label: 'License',
+      description: 'Open source license specified',
+      checked: false,
+      category: 'essential' as const,
+    },
+    {
+      id: 'contributing',
+      label: 'Contributing guide',
+      description: 'How others can contribute to the project',
+      checked: false,
+      category: 'recommended' as const,
+    },
+    {
+      id: 'features',
+      label: 'Feature list',
+      description: 'Key features clearly listed',
+      checked: false,
+      category: 'recommended' as const,
+    },
+    {
+      id: 'tech',
+      label: 'Tech stack',
+      description: 'Technologies and frameworks used',
+      checked: false,
+      category: 'recommended' as const,
+    },
+    {
+      id: 'screenshots',
+      label: 'Screenshots',
+      description: 'Visual preview of the project',
+      checked: false,
+      category: 'recommended' as const,
+    },
+    {
+      id: 'roadmap',
+      label: 'Roadmap',
+      description: 'Future plans and upcoming features',
+      checked: false,
+      category: 'optional' as const,
+    },
+    {
+      id: 'faq',
+      label: 'FAQ section',
+      description: 'Answers to common questions',
+      checked: false,
+      category: 'optional' as const,
+    },
+    {
+      id: 'changelog',
+      label: 'Changelog',
+      description: 'Version history or link to changelog',
+      checked: false,
+      category: 'optional' as const,
+    },
+    {
+      id: 'coc',
+      label: 'Code of conduct',
+      description: 'Community behavior guidelines',
+      checked: false,
+      category: 'optional' as const,
+    },
+    {
+      id: 'prerequisites',
+      label: 'Prerequisites listed',
+      description: 'System requirements and dependencies',
+      checked: false,
+      category: 'recommended' as const,
+    },
+    {
+      id: 'toc',
+      label: 'Table of contents',
+      description: 'Navigation for longer READMEs',
+      checked: false,
+      category: 'optional' as const,
+    },
   ];
 }

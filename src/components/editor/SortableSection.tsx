@@ -11,7 +11,11 @@ interface SortableSectionProps {
   onDelete: () => void;
 }
 
-export default function SortableSection({ section, onUpdate, onDelete }: SortableSectionProps) {
+export default function SortableSection({
+  section,
+  onUpdate,
+  onDelete,
+}: SortableSectionProps) {
   const {
     attributes,
     listeners,
@@ -25,7 +29,7 @@ export default function SortableSection({ section, onUpdate, onDelete }: Sortabl
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
-    zIndex: isDragging ? 50 : 'auto' as const,
+    zIndex: isDragging ? 50 : ('auto' as const),
   };
 
   return (

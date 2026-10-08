@@ -8,7 +8,11 @@ export function generateId(): string {
   return Math.random().toString(36).substring(2, 11);
 }
 
-export function downloadFile(content: string, filename: string, mimeType = 'text/markdown') {
+export function downloadFile(
+  content: string,
+  filename: string,
+  mimeType = 'text/markdown'
+) {
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -22,7 +26,10 @@ export function downloadFile(content: string, filename: string, mimeType = 'text
 
 export function copyToClipboard(text: string): Promise<boolean> {
   if (navigator.clipboard) {
-    return navigator.clipboard.writeText(text).then(() => true).catch(() => false);
+    return navigator.clipboard
+      .writeText(text)
+      .then(() => true)
+      .catch(() => false);
   }
   // Fallback
   const textarea = document.createElement('textarea');

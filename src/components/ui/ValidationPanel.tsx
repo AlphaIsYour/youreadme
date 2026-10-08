@@ -1,7 +1,13 @@
 'use client';
 
 import { ValidationResult } from '@/types';
-import { AlertTriangle, XCircle, ChevronDown, ChevronUp, ShieldCheck } from 'lucide-react';
+import {
+  AlertTriangle,
+  XCircle,
+  ChevronDown,
+  ChevronUp,
+  ShieldCheck,
+} from 'lucide-react';
 import { useState } from 'react';
 
 interface ValidationPanelProps {
@@ -52,7 +58,9 @@ export default function ValidationPanel({ validation }: ValidationPanelProps) {
               className="flex items-start gap-2.5 p-2.5 rounded-lg bg-red-50 dark:bg-red-950/30"
             >
               <XCircle className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
-              <span className="text-sm text-red-700 dark:text-red-300">{error}</span>
+              <span className="text-sm text-red-700 dark:text-red-300">
+                {error}
+              </span>
             </div>
           ))}
           {validation.warnings.map((warning, i) => (
@@ -61,7 +69,9 @@ export default function ValidationPanel({ validation }: ValidationPanelProps) {
               className="flex items-start gap-2.5 p-2.5 rounded-lg bg-amber-50 dark:bg-amber-950/30"
             >
               <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-              <span className="text-sm text-amber-700 dark:text-amber-300">{warning}</span>
+              <span className="text-sm text-amber-700 dark:text-amber-300">
+                {warning}
+              </span>
             </div>
           ))}
         </div>

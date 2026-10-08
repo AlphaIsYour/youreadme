@@ -17,6 +17,7 @@ Fixes #(issue)
 ## How Has This Been Tested?
 
 Please describe the tests or manual checks performed:
+
 - [ ] Tested locally on Chrome / Firefox / Edge
 - [ ] Tested responsive layout (desktop & mobile)
 - [ ] Ran `npm run lint` with no new errors

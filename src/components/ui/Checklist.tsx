@@ -41,9 +41,15 @@ export default function Checklist({ items, onChange }: ChecklistProps) {
     }
   };
 
-  const renderCategory = (label: string, catItems: ChecklistItem[], category: string) => (
+  const renderCategory = (
+    label: string,
+    catItems: ChecklistItem[],
+    category: string
+  ) => (
     <div className="mb-4">
-      <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getCategoryColor(category)}`}>
+      <h4
+        className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getCategoryColor(category)}`}
+      >
         {label}
       </h4>
       <div className="space-y-1.5">
@@ -97,7 +103,13 @@ export default function Checklist({ items, onChange }: ChecklistProps) {
               <path
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 fill="none"
-                stroke={percentage >= 80 ? '#10b981' : percentage >= 50 ? '#f59e0b' : '#ef4444'}
+                stroke={
+                  percentage >= 80
+                    ? '#10b981'
+                    : percentage >= 50
+                      ? '#f59e0b'
+                      : '#ef4444'
+                }
                 strokeWidth="3"
                 strokeDasharray={`${percentage}, 100`}
                 strokeLinecap="round"

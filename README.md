@@ -43,6 +43,7 @@ With drag-and-drop section arrangement, real-time GitHub Flavored Markdown previ
 ## 🚀 Quickstart
 
 ### Prerequisites
+
 - Node.js 18.x or 20.x+
 - npm, yarn, or pnpm
 
@@ -64,12 +65,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The live ed
 
 ### Available Scripts
 
-| Command | Purpose |
-|---------|---------|
-| `npm run dev` | Start Next.js development server with hot-reloading |
-| `npm run build` | Compile optimized production build |
-| `npm run start` | Serve production build locally |
-| `npm run lint` | Run ESLint across all TypeScript and React files |
+| Command         | Purpose                                             |
+| --------------- | --------------------------------------------------- |
+| `npm run dev`   | Start Next.js development server with hot-reloading |
+| `npm run build` | Compile optimized production build                  |
+| `npm run start` | Serve production build locally                      |
+| `npm run lint`  | Run ESLint across all TypeScript and React files    |
 
 ---
 
@@ -78,6 +79,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The live ed
 We maintain a transparent roadmap reflecting the real direction of the project:
 
 ### ✅ Completed
+
 - [x] Responsive Landing Page and Editor split-view interface
 - [x] Drag-and-drop section reordering with `@dnd-kit`
 - [x] Shields.io badge picker and category explorer
@@ -86,16 +88,19 @@ We maintain a transparent roadmap reflecting the real direction of the project:
 - [x] Markdown export & clipboard copying
 
 ### 🔄 In Progress / Planned
+
 - [ ] **Import existing README**: Parse and populate editor sections from an existing `README.md` file.
 - [ ] **Local Storage Auto-Save**: Automatically persist in-progress drafts so refreshing doesn't lose data.
 - [ ] **Comprehensive Unit Test Suite**: Unit tests for Markdown compiler and heading validator functions.
 
 ### 🤝 Help Wanted (Great for Community Contributions!)
+
 - [ ] **New Badge Categories**: Add categories for cloud providers, databases, and CI services in `src/data/badges.ts`.
 - [ ] **Accessibility (a11y) Enhancements**: Keyboard navigation and `aria-*` improvements across editor controls.
 - [ ] **Mobile Drawer / Toggle**: Smoother mobile responsive preview toggle.
 
 ### 🔮 Future Ideas
+
 - [ ] Customizable preview CSS themes (GitHub Light, GitHub Dark, Minimalist).
 - [ ] Mermaid diagram section generator block.
 
@@ -108,6 +113,7 @@ Contributions are what make the open-source community an incredible place to lea
 Check out our [Contributing Guide](CONTRIBUTING.md) for step-by-step instructions on setting up your environment, coding standards, and how to submit a Pull Request.
 
 Looking for a place to start? Check our issues labeled:
+
 - [`good first issue`](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 - [`help wanted`](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
@@ -120,6 +126,7 @@ Please make sure to follow our [Code of Conduct](CODE_OF_CONDUCT.md) in all comm
 Thank you to everyone who contributes time, code, and feedback to Eno README Lab!
 
 <!-- Contributors list will be automatically reflected here as the community grows -->
+
 Contributions of any kind — bug reports, documentation clarifications, code fixes, or new template ideas — are always welcome. See the [GitHub Contributor Graph](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/graphs/contributors) for all recognized contributors.
 
 ---
@@ -134,7 +141,7 @@ If you find Eno README Lab helpful for your open-source projects, you can option
 
 </div>
 
-*Whether or not you donate, your code contributions, issue reports, and feedback are always deeply valued.*
+_Whether or not you donate, your code contributions, issue reports, and feedback are always deeply valued._
 
 ---
 

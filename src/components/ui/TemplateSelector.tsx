@@ -9,13 +9,18 @@ interface TemplateSelectorProps {
   onClose: () => void;
 }
 
-export default function TemplateSelector({ onSelect, onClose }: TemplateSelectorProps) {
+export default function TemplateSelector({
+  onSelect,
+  onClose,
+}: TemplateSelectorProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
       <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden border border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-700">
           <div>
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Choose a Template</h2>
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white">
+              Choose a Template
+            </h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Start with a pre-built structure for your README
             </p>

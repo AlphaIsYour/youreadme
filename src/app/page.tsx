@@ -29,7 +29,10 @@ export default function LandingPage() {
               <FileText className="w-5 h-5 text-white" />
             </div>
             <span className="text-lg font-bold text-gray-900 dark:text-white">
-              Eno <span className="text-emerald-600 dark:text-emerald-400">README Lab</span>
+              Eno{' '}
+              <span className="text-emerald-600 dark:text-emerald-400">
+                README Lab
+              </span>
             </span>
           </Link>
           <div className="flex items-center gap-3">
@@ -63,8 +66,9 @@ export default function LandingPage() {
             </h1>
 
             <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto">
-              A polished README builder for open-source maintainers. Templates, live preview,
-              drag-and-drop sections, badge helper, and best practices checklist — all in your browser.
+              A polished README builder for open-source maintainers. Templates,
+              live preview, drag-and-drop sections, badge helper, and best
+              practices checklist — all in your browser.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -138,60 +142,82 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-24 bg-gray-50/50 dark:bg-gray-900/50">
+      <section
+        id="features"
+        className="py-24 bg-gray-50/50 dark:bg-gray-900/50"
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Everything you need for a great README
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Built for open-source maintainers who want professional documentation without the hassle.
+              Built for open-source maintainers who want professional
+              documentation without the hassle.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard
-              icon={<LayoutTemplate className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <LayoutTemplate className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Smart Templates"
               description="Pre-built templates for web apps, libraries, CLI tools, and starter repos. Start with the right structure instantly."
             />
             <FeatureCard
-              icon={<Eye className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <Eye className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Live Preview"
               description="See your README rendered in real-time as you type. No more guessing how your markdown will look."
             />
             <FeatureCard
-              icon={<GripVertical className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <GripVertical className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Drag & Drop"
               description="Reorder sections with drag-and-drop. Organize your README exactly how you want it."
             />
             <FeatureCard
-              icon={<Award className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <Award className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Badge Helper"
               description="Browse and insert badges for build status, version, license, and more. Powered by shields.io."
             />
             <FeatureCard
-              icon={<ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Best Practices"
               description="Built-in checklist ensures your README covers all essentials: description, install steps, license, and more."
             />
             <FeatureCard
-              icon={<Zap className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <Zap className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Structure Validator"
               description="Heading structure validation catches common mistakes like skipped heading levels and missing H1 tags."
             />
             <FeatureCard
-              icon={<Download className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <Download className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="One-Click Export"
               description="Download your finished README as a .md file or copy to clipboard. Ready to paste into your repo."
             />
             <FeatureCard
-              icon={<Palette className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <Palette className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Dark Mode"
               description="Work comfortably in any lighting. Full dark mode support throughout the editor."
             />
             <FeatureCard
-              icon={<Layers className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={
+                <Layers className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              }
               title="Section Blocks"
               description="Modular section system. Add, remove, enable, or disable any section. Full control over your README."
             />
@@ -241,7 +267,9 @@ export default function LandingPage() {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -258,8 +286,8 @@ export default function LandingPage() {
                 Ready to build your README?
               </h2>
               <p className="text-emerald-100 text-lg mb-8 max-w-xl mx-auto">
-                No signup, no installation. Open the editor and start building a professional README
-                for your project right now.
+                No signup, no installation. Open the editor and start building a
+                professional README for your project right now.
               </p>
               <Link
                 href="/editor"
@@ -286,7 +314,8 @@ export default function LandingPage() {
               </span>
             </div>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Built for open-source maintainers. 100% client-side. Your data never leaves your browser.
+              Built for open-source maintainers. 100% client-side. Your data
+              never leaves your browser.
             </p>
             <div className="flex items-center gap-4">
               <a

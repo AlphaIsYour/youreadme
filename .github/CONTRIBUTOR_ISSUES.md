@@ -1,7 +1,7 @@
-# Ready-to-Publish GitHub Issues for Eno README Lab
+# Open-Source Contributor Issues for Reavas (YouREADME)
 
-Dokumen ini berisi daftar **12 issue open-source nyata, terstruktur, dan siap dipublikasikan** ke tab **Issues** di GitHub repositori.
-Setiap issue telah dilengkapi dengan latar belakang masalah (_Why_), _Current vs Expected Behavior_, panduan teknis (_Possible Approach_), _Acceptance Criteria_, tingkat kesulitan, dan label yang sesuai.
+Dokumen ini berisi daftar issue open-source nyata, terstruktur, dan telah dipublikasikan ke tab **Issues** di GitHub repositori [`AlphaIsYour/youreadme`](https://github.com/AlphaIsYour/youreadme/issues).
+Setiap issue telah dilengkapi dengan latar belakang masalah (_Why_), panduan teknis (_Possible Approach_), _Acceptance Criteria_, tingkat kesulitan, dan label `good first issue` / `help wanted`.
 
 ---
 

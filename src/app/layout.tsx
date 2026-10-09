@@ -23,9 +23,6 @@ export const metadata: Metadata = {
   title: 'Reavas — Minimalist README & Docs Studio',
   description:
     'A developer-first, minimalist README builder and documentation engine. Build production-grade READMEs with live AST preview, archetypes, and zero overhead.',
-  icons: {
-    icon: '/reavas.png',
-  },
   keywords: [
     'Reavas',
     'README',

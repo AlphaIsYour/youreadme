@@ -18,6 +18,7 @@ import {
 } from '@dnd-kit/sortable';
 import Link from 'next/link';
 import Image from 'next/image';
+import logoImg from '../../../public/reavas.png';
 import { Section, ProjectData, ChecklistItem, Template } from '@/types';
 import { generateId } from '@/lib/utils';
 import {
@@ -364,7 +365,7 @@ export default function EditorPage() {
               className="flex items-center gap-1.5 shrink-0 whitespace-nowrap"
             >
               <Image
-                src="/reavas.png"
+                src={logoImg}
                 alt="Reavas Logo"
                 width={20}
                 height={20}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import logoImg from '../../public/reavas.png';
 import FeatureCard from '@/components/landing/FeatureCard';
 import {
   FileText,
@@ -49,7 +50,7 @@ export default function LandingPage() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
             <Image
-              src="/reavas.png"
+              src={logoImg}
               alt="Reavas Logo"
               width={28}
               height={28}

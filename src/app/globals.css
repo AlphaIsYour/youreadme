@@ -2,10 +2,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --accent: #059669;
-  --accent-light: #d1fae5;
-  --accent-dark: #047857;
+  --foreground: #000000;
+  --accent: #000000;
+  --accent-foreground: #ffffff;
 }
 
 @theme inline {
@@ -13,15 +12,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-teko);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --accent: #34d399;
-    --accent-light: #064e3b;
-    --accent-dark: #6ee7b7;
+    --background: #000000;
+    --foreground: #ffffff;
+    --accent: #ffffff;
+    --accent-foreground: #000000;
   }
 }
 
@@ -37,10 +36,14 @@ body {
     sans-serif;
 }
 
-/* Custom scrollbar */
+.font-teko {
+  font-family: var(--font-teko), var(--font-sans), sans-serif;
+}
+
+/* Custom scrollbar - Minimalist Monochrome */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -48,26 +51,27 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 3px;
+  background: #a1a1aa;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #71717a;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: #27272a;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+  background: #3f3f46;
 }
 
-/* Markdown preview styles */
+/* Markdown preview styles - Clean Black & White */
 .markdown-preview pre {
-  background: #1e293b !important;
-  border-radius: 12px;
+  background: #09090b !important;
+  color: #f4f4f5 !important;
+  border: 1px solid #27272a;
+  border-radius: 0px !important;
   padding: 1rem;
   overflow-x: auto;
   margin: 1rem 0;
@@ -78,69 +82,67 @@ body {
   font-size: 0.875rem;
 }
 
-/* Smooth transitions */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 150ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid #059669;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
 /* Grid pattern for decorative backgrounds */
-.bg-grid-pattern {
+.bg-grid-monochrome {
   background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(120, 120, 120, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(120, 120, 120, 0.08) 1px, transparent 1px);
   background-size: 2rem 2rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+/* Brutalist monochrome shadows */
+.brutal-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.dark .brutal-shadow {
+  box-shadow: 4px 4px 0px 0px #ffffff;
+}
+
+.brutal-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.dark .brutal-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #ffffff;
+}
+
+/* Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
-.animate-slide-up {
-  animation: slideUp 0.5s ease-out;
-}
-
-@keyframes pulse-glow {
+@keyframes pulse-subtle {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4);
+    opacity: 1;
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(5, 150, 105, 0);
+    opacity: 0.4;
   }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

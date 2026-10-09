@@ -8,6 +8,8 @@ import {
   EyeOff,
   ChevronDown,
   ChevronUp,
+  ArrowUp,
+  ArrowDown,
   FileText,
   Hash,
   Image,
@@ -27,6 +29,8 @@ interface SectionEditorProps {
   section: Section;
   onUpdate: (section: Section) => void;
   onDelete: () => void;
+  onMoveUp?: () => void;
+  onMoveDown?: () => void;
   dragHandleProps?: Record<string, unknown>;
 }
 
@@ -49,7 +53,7 @@ const sectionIcons: Record<string, React.ElementType> = {
 
 const sectionPlaceholders: Record<string, string> = {
   header: '',
-  badges: '![Build](https://img.shields.io/badge/build-passing-brightgreen)',
+  badges: '![Build](https://img.shields.io/badge/build-passing-black)',
   description: 'Describe what your project does and why it matters...',
   features: '- Feature one\n- Feature two\n- Feature three',
   screenshots: '![Screenshot](./screenshots/app.png)',
@@ -68,6 +72,8 @@ export default function SectionEditor({
   section,
   onUpdate,
   onDelete,
+  onMoveUp,
+  onMoveDown,
   dragHandleProps,
 }: SectionEditorProps) {
   const [collapsed, setCollapsed] = useState(false);
@@ -78,57 +84,79 @@ export default function SectionEditor({
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md">
+    <div className="bg-white dark:bg-black rounded-none border border-black/25 dark:border-white/25 overflow-hidden transition-all duration-150 hover:border-black dark:hover:border-white shadow-sm">
       {/* Header */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex items-center gap-2 px-3 sm:px-4 py-2.5 bg-zinc-50 dark:bg-zinc-900 border-b border-black/15 dark:border-white/15">
         <div
           {...dragHandleProps}
-          className="cursor-grab active:cursor-grabbing p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors"
+          className="cursor-grab active:cursor-grabbing p-1 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-none transition-colors"
+          title="Drag to reorder"
         >
-          <GripVertical className="w-4 h-4 text-gray-400" />
+          <GripVertical className="w-3.5 h-3.5 text-zinc-400" />
         </div>
 
-        <Icon className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+        <Icon className="w-3.5 h-3.5 text-black dark:text-white flex-shrink-0" />
 
         <input
           type="text"
           value={section.title}
           onChange={(e) => handleChange('title', e.target.value)}
-          className="flex-1 min-w-0 bg-transparent text-sm font-semibold text-gray-900 dark:text-white focus:outline-none"
-          placeholder="Section title..."
+          className="flex-1 min-w-0 bg-transparent text-xs font-mono font-bold uppercase tracking-wider text-black dark:text-white focus:outline-none"
+          placeholder="SECTION TITLE..."
         />
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5 sm:gap-1">
+          {onMoveUp && (
+            <button
+              onClick={onMoveUp}
+              className="p-1 rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+              title="Move Up"
+            >
+              <ArrowUp className="w-3.5 h-3.5 text-zinc-400 hover:text-black dark:hover:text-white" />
+            </button>
+          )}
+
+          {onMoveDown && (
+            <button
+              onClick={onMoveDown}
+              className="p-1 rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+              title="Move Down"
+            >
+              <ArrowDown className="w-3.5 h-3.5 text-zinc-400 hover:text-black dark:hover:text-white" />
+            </button>
+          )}
+
           <button
             onClick={() => handleChange('enabled', !section.enabled)}
-            className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="p-1 rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
             title={section.enabled ? 'Disable section' : 'Enable section'}
           >
             {section.enabled ? (
-              <Eye className="w-4 h-4 text-emerald-500" />
+              <Eye className="w-3.5 h-3.5 text-black dark:text-white" />
             ) : (
-              <EyeOff className="w-4 h-4 text-gray-400" />
+              <EyeOff className="w-3.5 h-3.5 text-zinc-400" />
             )}
           </button>
 
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="p-1 rounded-none hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+            title={collapsed ? 'Expand section' : 'Collapse section'}
           >
             {collapsed ? (
-              <ChevronDown className="w-4 h-4 text-gray-400" />
+              <ChevronDown className="w-3.5 h-3.5 text-zinc-400" />
             ) : (
-              <ChevronUp className="w-4 h-4 text-gray-400" />
+              <ChevronUp className="w-3.5 h-3.5 text-zinc-400" />
             )}
           </button>
 
           {section.type !== 'header' && section.type !== 'license' && (
             <button
               onClick={onDelete}
-              className="p-1.5 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
+              className="p-1 rounded-none hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
               title="Delete section"
             >
-              <Trash2 className="w-4 h-4 text-red-400 hover:text-red-600" />
+              <Trash2 className="w-3.5 h-3.5 text-zinc-400 hover:text-red-600 dark:hover:text-red-400" />
             </button>
           )}
         </div>
@@ -136,15 +164,14 @@ export default function SectionEditor({
 
       {/* Content */}
       {!collapsed && section.enabled && (
-        <div className="p-4">
+        <div className="p-3 sm:p-4 bg-white dark:bg-black">
           {section.type === 'header' ? (
-            <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-              Header is auto-generated from your project name and description
-              above.
+            <p className="text-xs font-mono text-zinc-500 uppercase">
+              HEADER AUTO-COMPILED FROM PROJECT DETAILS
             </p>
           ) : section.type === 'license' ? (
-            <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-              License section is auto-generated from the license field above.
+            <p className="text-xs font-mono text-zinc-500 uppercase">
+              LICENSE AUTO-COMPILED FROM PROJECT LICENSE
             </p>
           ) : (
             <textarea
@@ -153,15 +180,15 @@ export default function SectionEditor({
               placeholder={
                 sectionPlaceholders[section.type] || 'Enter content...'
               }
-              rows={6}
-              className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 text-sm text-gray-700 dark:text-gray-300 font-mono resize-y focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500"
+              rows={5}
+              className="w-full bg-zinc-50 dark:bg-zinc-950 border border-black/20 dark:border-white/20 rounded-none p-3 text-xs text-black dark:text-white font-mono leading-relaxed resize-y focus:outline-none focus:border-black dark:focus:border-white placeholder:text-zinc-500"
             />
           )}
           {section.type !== 'header' && section.type !== 'license' && (
-            <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
-              Supports Markdown syntax. Use ``` for code blocks, **bold**,
-              *italic*, etc.
-            </p>
+            <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 mt-2">
+              <span>MARKDOWN SUPPORTED (```, **, #)</span>
+              <span>{section.content.length} CHARS</span>
+            </div>
           )}
         </div>
       )}

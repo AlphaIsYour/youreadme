@@ -1,4 +1,4 @@
-// Core types for Eno README Lab
+// Core types for Reavas
 
 export type SectionType =
   | 'header'

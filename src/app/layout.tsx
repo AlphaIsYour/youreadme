@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
+
+const teko = localFont({
+  src: '../../public/fonts/teko.woff2',
+  variable: '--font-teko',
+  display: 'swap',
+});
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -13,10 +20,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Eno README Lab — Build Beautiful READMEs',
+  title: 'Reavas — Minimalist README & Docs Studio',
   description:
-    'A browser-based README builder and editor for open-source projects. Create professional READMEs with live preview, templates, badges, and best practices checklist.',
+    'A developer-first, minimalist README builder and documentation engine. Build production-grade READMEs with live AST preview, archetypes, and zero overhead.',
+  icons: {
+    icon: '/reavas.png',
+  },
   keywords: [
+    'Reavas',
     'README',
     'markdown',
     'open source',
@@ -26,9 +37,9 @@ export const metadata: Metadata = {
     'editor',
   ],
   openGraph: {
-    title: 'Eno README Lab — Build Beautiful READMEs',
+    title: 'Reavas — Minimalist README & Docs Studio',
     description:
-      'A browser-based README builder and editor for open-source projects. Create professional READMEs with live preview, templates, badges, and best practices checklist.',
+      'A developer-first, minimalist README builder and documentation engine. Build production-grade READMEs with live AST preview, archetypes, and zero overhead.',
     type: 'website',
   },
 };
@@ -41,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${teko.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

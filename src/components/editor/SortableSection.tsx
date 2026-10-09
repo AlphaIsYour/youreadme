@@ -9,12 +9,16 @@ interface SortableSectionProps {
   section: Section;
   onUpdate: (section: Section) => void;
   onDelete: () => void;
+  onMoveUp?: () => void;
+  onMoveDown?: () => void;
 }
 
 export default function SortableSection({
   section,
   onUpdate,
   onDelete,
+  onMoveUp,
+  onMoveDown,
 }: SortableSectionProps) {
   const {
     attributes,
@@ -38,6 +42,8 @@ export default function SortableSection({
         section={section}
         onUpdate={onUpdate}
         onDelete={onDelete}
+        onMoveUp={onMoveUp}
+        onMoveDown={onMoveDown}
         dragHandleProps={listeners}
       />
     </div>

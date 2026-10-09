@@ -40,47 +40,47 @@ export default function BadgePicker({ onInsert, onClose }: BadgePickerProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+      <div className="bg-white dark:bg-black rounded-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] w-full max-w-2xl max-h-[85vh] flex flex-col overflow-hidden border-2 border-black dark:border-white">
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between p-5 border-b-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900">
           <div>
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-              Badge Helper
+            <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+              // CATALOG
+            </span>
+            <h2 className="font-teko text-3xl uppercase tracking-wider text-black dark:text-white leading-none">
+              SHIELDS.IO BADGE HELPER
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Click a badge to insert it into your README
-            </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-1.5 rounded-none border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
           >
-            <X className="w-5 h-5 text-gray-500" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Search */}
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+        {/* Search & Categories */}
+        <div className="p-4 border-b border-black/20 dark:border-white/20 bg-white dark:bg-black">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
             <input
               type="text"
-              placeholder="Search badges..."
+              placeholder="Search badges (build, typescript, license...)"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white"
+              className="w-full pl-10 pr-4 py-2.5 bg-zinc-50 dark:bg-zinc-950 border border-black/30 dark:border-white/30 rounded-none text-xs font-mono focus:outline-none focus:border-black dark:focus:border-white text-black dark:text-white placeholder:text-zinc-500"
             />
           </div>
-          <div className="flex flex-wrap gap-2 mt-3">
+          <div className="flex flex-wrap gap-1.5 mt-3">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                className={`px-3 py-1 rounded-none text-[11px] font-mono uppercase tracking-wider border transition-colors ${
                   selectedCategory === cat
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700'
+                    ? 'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white font-bold'
+                    : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white'
                 }`}
               >
                 {cat}
@@ -90,52 +90,50 @@ export default function BadgePicker({ onInsert, onClose }: BadgePickerProps) {
         </div>
 
         {/* Badge Grid */}
-        <div className="flex-1 overflow-y-auto p-4">
+        <div className="flex-1 overflow-y-auto p-4 bg-zinc-50/50 dark:bg-zinc-950/50">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {filtered.map((badge) => {
               return (
                 <button
                   key={badge.id}
                   onClick={() => handleInsert(badge)}
-                  className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-all text-left group"
+                  className="flex items-center gap-3 p-3 rounded-none border border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white bg-white dark:bg-black hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all text-left group"
                 >
                   <img
                     src={`https://img.shields.io/badge/${encodeURIComponent(badge.label)}-${encodeURIComponent(badge.message)}-${badge.color}${badge.logo ? `?logo=${badge.logo}` : ''}`}
                     alt={badge.label}
                     className="h-5 flex-shrink-0"
                   />
-                  <span className="text-xs text-gray-500 dark:text-gray-400 truncate flex-1">
+                  <span className="text-[10px] font-mono uppercase text-zinc-500 truncate flex-1">
                     {badge.category}
                   </span>
                   {copiedId === badge.id ? (
-                    <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                    <Check className="w-4 h-4 text-black dark:text-white flex-shrink-0" />
                   ) : (
-                    <Copy className="w-4 h-4 text-gray-400 group-hover:text-emerald-500 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <Copy className="w-4 h-4 text-zinc-400 group-hover:text-black dark:group-hover:text-white flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                   )}
                 </button>
               );
             })}
           </div>
           {filtered.length === 0 && (
-            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-              No badges found matching your search.
+            <div className="text-center py-12 text-xs font-mono uppercase text-zinc-500">
+              [ NO BADGES FOUND MATCHING QUERY ]
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            Badges powered by shields.io. You can also create custom badges at{' '}
-            <a
-              href="https://shields.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-emerald-600 hover:underline"
-            >
-              shields.io
-            </a>
-          </p>
+        <div className="p-3 border-t-2 border-black dark:border-white bg-zinc-50 dark:bg-zinc-900 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+          <span>Click any badge to inject markdown</span>
+          <a
+            href="https://shields.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-black dark:hover:text-white underline uppercase"
+          >
+            [ Shields.io Docs ]
+          </a>
         </div>
       </div>
     </div>

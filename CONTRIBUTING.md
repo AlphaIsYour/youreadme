@@ -115,11 +115,19 @@ Before pushing your changes and opening a Pull Request, please ensure:
    ```bash
    npm run lint
    ```
-3. **Production build succeeds**:
+3. **Unit tests pass**:
+   ```bash
+   # Run all unit tests
+   npm test
+
+   # Run tests in watch mode during development
+   npm run test:watch
+   ```
+4. **Production build succeeds**:
    ```bash
    npm run build
    ```
-4. **Responsive behavior**:
+5. **Responsive behavior**:
    Check that your changes look right on both desktop and mobile viewports.
 
 ---

@@ -9,8 +9,8 @@ Whether you're fixing a typo, resolving a bug, improving accessibility, or propo
 
 If you are new to open-source or to this repository, take a look at issues labeled:
 
-- [`good first issue`](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) — Smaller, well-scoped tasks with clear requirements.
-- [`help wanted`](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) — Features or fixes where we are looking for community input and help.
+- [`good first issue`](https://github.com/AlphaIsYour/youreadme/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) — Smaller, well-scoped tasks with clear requirements.
+- [`help wanted`](https://github.com/AlphaIsYour/youreadme/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) — Features or fixes where we are looking for community input and help.
 
 Feel free to comment on an issue to ask questions or claim it before you start working.
 
@@ -145,7 +145,7 @@ Before pushing your changes and opening a Pull Request, please ensure:
 
 ## ❓ Have Questions or Need Help?
 
-- If you encounter a bug, open an issue using the [Bug Report](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues/new?template=bug_report.md) template.
+- If you encounter a bug, open an issue using the [Bug Report](https://github.com/AlphaIsYour/youreadme/issues/new?template=bug_report.md) template.
 - For feature proposals or general questions, feel free to open an issue or initiate a GitHub Discussion.
 
 Thank you for helping make Eno README Lab better! 🚀

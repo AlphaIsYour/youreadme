@@ -429,7 +429,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
             <div className="flex items-center gap-2.5">
               <Image
-                src="/reavas.png"
+                src={logoImg}
                 alt="Reavas Logo"
                 width={24}
                 height={24}
@@ -450,7 +450,7 @@ export default function LandingPage() {
                 [ Editor ]
               </Link>
               <a
-                href="https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab"
+                href="https://github.com/AlphaIsYour/youreadme"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline text-black dark:text-white"

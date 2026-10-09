@@ -9,7 +9,7 @@
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss)](https://tailwindcss.com/)
-[![CI](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/actions)
+[![CI](https://github.com/AlphaIsYour/youreadme/actions/workflows/ci.yml/badge.svg)](https://github.com/AlphaIsYour/youreadme/actions)
 
 [Try Demo](http://localhost:3000) • [Key Features](#features) • [Quickstart](#quickstart) • [Roadmap](#roadmap) • [Contributing](#contributing)
 
@@ -51,8 +51,8 @@ With drag-and-drop section arrangement, real-time GitHub Flavored Markdown previ
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab.git
-cd youralpha-08-eno-readme-lab
+git clone https://github.com/AlphaIsYour/youreadme.git
+cd youreadme
 
 # 2. Install dependencies
 npm install
@@ -114,8 +114,8 @@ Check out our [Contributing Guide](CONTRIBUTING.md) for step-by-step instruction
 
 Looking for a place to start? Check our issues labeled:
 
-- [`good first issue`](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-- [`help wanted`](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+- [`good first issue`](https://github.com/AlphaIsYour/youreadme/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+- [`help wanted`](https://github.com/AlphaIsYour/youreadme/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 Please make sure to follow our [Code of Conduct](CODE_OF_CONDUCT.md) in all community interactions.
 
@@ -127,7 +127,7 @@ Thank you to everyone who contributes time, code, and feedback to Eno README Lab
 
 <!-- Contributors list will be automatically reflected here as the community grows -->
 
-Contributions of any kind — bug reports, documentation clarifications, code fixes, or new template ideas — are always welcome. See the [GitHub Contributor Graph](https://github.com/AlphaIsYour/youralpha-08-eno-readme-lab/graphs/contributors) for all recognized contributors.
+Contributions of any kind — bug reports, documentation clarifications, code fixes, or new template ideas — are always welcome. See the [GitHub Contributor Graph](https://github.com/AlphaIsYour/youreadme/graphs/contributors) for all recognized contributors.
 
 ---
 
